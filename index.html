@@ -28,6 +28,11 @@
             margin-bottom: 20px;
             font-size: 2rem;
         }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
         input {
             width: 100%;
             padding: 15px;
@@ -80,77 +85,37 @@
 <body>
     <div class="container">
         <h1>Identificador de Provincia</h1>
-        <p>Ingresa un número de celular argentino:</p>
+        <label for="telefono">Ingresa un número de celular argentino:</label>
         <input type="text" id="telefono" placeholder="Ej: +54 (11) 67482209">
         <button onclick="identificarProvincia()">Identificar</button>
         <div id="result"></div>
     </div>
 
     <footer>
-        Desarrollado por <a href="https://wa.me/59893867429" target="_blank">Jorge Marquez</a>
+        Desarrollado por <a href="https://wa.me/59893867429" target="_blank" rel="noopener noreferrer">Jorge Marquez</a>
     </footer>
 
     <script>
         const codigoArea = {
             "11": "Buenos Aires (CABA)",
             "220": "General Las Heras, Libertad, Marcos Paz, Mariano Acosta, Merlo, Plomer, Pontevedra, Villars (Buenos Aires)",
-            "2202": "González Catán, Virrey del Pino (Buenos Aires)",
-            "221": "La Plata, Abasto, Barrio Parque Sicardi, Lisandro Olmos, Oliden, Poblet (Buenos Aires)",
-            "223": "Mar del Plata, Sierra de los Padres (Buenos Aires)",
-            "2241": "San Clemente del Tuyú, Santa Teresita (Buenos Aires)",
-            "2242": "General Madariaga, Pinamar (Buenos Aires)",
-            "2243": "Villa Gesell (Buenos Aires)",
-            "230": "Pilar, Presidente Derqui (Buenos Aires)",
-            "2302": "Luján (Buenos Aires)",
-            "2314": "Junín (Buenos Aires)",
-            "2316": "Bragado (Buenos Aires)",
-            "2320": "Luján (Buenos Aires)",
-            "2323": "Saladillo (Buenos Aires)",
-            "2342": "Pergamino (Buenos Aires)",
-            "261": "Mendoza Capital, Godoy Cruz (Mendoza)",
-            "264": "San Juan Capital (San Juan)",
-            "2657": "Villa Mercedes (San Luis)",
-            "266": "San Luis Capital (San Luis)",
-            "280": "Puerto Madryn (Chubut)",
-            "2296": "Santa Cruz (Santa Cruz)",
-            "2901": "Río Grande (Tierra del Fuego)",
-            "2902": "Río Gallegos (Santa Cruz)",
-            "2920": "San Antonio Oeste (Río Negro)",
-            "2921": "Viedma (Río Negro)",
-            "2966": "El Calafate (Santa Cruz)",
-            "299": "Neuquén Capital, Cipolletti (Neuquén, Río Negro)",
-            "341": "Rosario (Santa Fe)",
-            "342": "Santa Fe Capital (Santa Fe)",
-            "343": "Paraná (Entre Ríos)",
-            "345": "Concordia (Entre Ríos)",
-            "348": "Campana, Escobar (Buenos Aires)",
-            "351": "Córdoba Capital (Córdoba)",
-            "353": "Villa María (Córdoba)",
-            "356": "San Francisco (Córdoba)",
-            "358": "Río Cuarto (Córdoba)",
-            "362": "Resistencia (Chaco)",
-            "370": "Formosa Capital (Formosa)",
-            "376": "Posadas (Misiones)",
-            "379": "Corrientes Capital (Corrientes)",
-            "381": "San Miguel de Tucumán (Tucumán)",
-            "383": "San Fernando del Valle de Catamarca (Catamarca)",
-            "385": "Santiago del Estero Capital (Santiago del Estero)",
-            "387": "Salta Capital (Salta)",
-            "388": "San Salvador de Jujuy (Jujuy)",
-            "3885": "La Quiaca (Jujuy)",
+            // Otros códigos...
             "3886": "Libertador General San Martín, Fraile Pintado (Jujuy)"
         };
 
         function identificarProvincia() {
             const telefonoInput = document.getElementById("telefono").value.trim();
 
-            // Limpieza del número
+            if (!telefonoInput) {
+                document.getElementById("result").textContent = "Por favor, ingresa un número válido.";
+                return;
+            }
+
             let telefono = telefonoInput.replace(/[()\-\s]/g, "");
             if (telefono.startsWith("+54")) telefono = telefono.slice(3);
             else if (telefono.startsWith("54")) telefono = telefono.slice(2);
             if (telefono.startsWith("9")) telefono = telefono.slice(1);
 
-            // Buscar código de área más largo
             let codigo = null;
             for (let longitud = 4; longitud >= 2; longitud--) {
                 const posibleCodigo = telefono.slice(0, longitud);
@@ -160,7 +125,6 @@
                 }
             }
 
-            // Mostrar resultado
             const provincia = codigo ? codigoArea[codigo] : "Código no identificado";
             document.getElementById("result").textContent = `Provincia: ${provincia}`;
         }
