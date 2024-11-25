@@ -44,5 +44,5 @@ Estructura simple: Contiene una etiqueta de entrada, un botón y una sección de
 Personalización:
 Puedes actualizar el archivo index.html para añadir más códigos al diccionario o cambiar el estilo visual en la sección <style>.
 
-Autor
+Autor:
 Desarrollado por Jorge Marquez.
