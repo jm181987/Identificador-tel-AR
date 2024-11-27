@@ -1,18 +1,18 @@
 <h1>Identificador de Provincia por Celular</h1>
 Este repositorio contiene un proyecto web simple que permite identificar la provincia asociada a un número de celular argentino. Utiliza HTML, CSS y JavaScript para crear una interfaz interactiva y amigable.
 
-Características:
+<h4>Características:</h4>
 Identificación de provincia: Basado en el código de área del número telefónico ingresado, el sistema determina la provincia correspondiente.
 Interfaz moderna: Utiliza estilos CSS con gradientes y animaciones para una experiencia visual agradable.
 Fácil de usar: La entrada del usuario se procesa automáticamente para identificar el código de área.
 Vista Previa
 El sitio incluye un campo de entrada para el número de teléfono y un botón para realizar la identificación. Una vez ingresado el número, se muestra la provincia correspondiente.
 
-Requisitos:
+<h4>Requisitos:</h4>
 Un navegador web moderno para ejecutar el código.
 Archivo index.html disponible en el repositorio.
 
-Cómo usar:
+<h4>Cómo usar:</h4>
 Clona el repositorio:
 
 bash
@@ -24,7 +24,7 @@ Ingresa un número de celular: Introduce un número con formato internacional (e
 
 Haz clic en "Identificar": El sistema analizará el código de área y mostrará la provincia correspondiente.
 
-Funcionalidades técnicas:
+<h4>Funcionalidades técnicas:</h4>
 
 JavaScript:
 Normalización del número: Elimina caracteres especiales como paréntesis, guiones y espacios. Además, gestiona formatos con +54, 54, o números con prefijo 9.
@@ -44,5 +44,5 @@ Estructura simple: Contiene una etiqueta de entrada, un botón y una sección de
 Personalización:
 Puedes actualizar el archivo index.html para añadir más códigos al diccionario o cambiar el estilo visual en la sección <style>.
 
-Autor:
+<h4>Autor:</h4>
 Desarrollado por Jorge Marquez.
